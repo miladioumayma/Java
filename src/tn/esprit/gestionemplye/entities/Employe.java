@@ -1,5 +1,5 @@
 package tn.esprit.gestionemplye.entities;
-
+import java.util.Objects;
 public class Employe implements Comparable<Employe> {
     private int id;
     private String nom;
@@ -59,6 +59,14 @@ public class Employe implements Comparable<Employe> {
 
     public void setGrade(int grade) {
         this.grade = grade;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employe employe = (Employe) o;
+        return id == employe.id && Objects.equals(nom, employe.nom);
     }
 
 
